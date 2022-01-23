@@ -2,22 +2,10 @@ import { Schema, model } from 'mongoose';
 
 const DepartmentSchema = new Schema (
     {
-        bucode: { type: String, required: true },
-        buname: { type: String, required: true },
-        buvisionstatement: String ,
-        bumissionstatement: String ,
-        incorporationdate: { type:Date, required: true },
-        headofficeaddress: { 
-            streetnumber: String,
-            address1: String,
-            address2: String,
-            address3: String,
-            city_town: String,
-            county: String,
-            state_province: String,
-            country: String,
-            postalcode: String
-        },
+        deptcode: { type: String, required: true },
+        deptname: { type: String, required: true },
+        deptvisionstatement: String ,
+        deptmissionstatement: String,
         telephone: [{ 
             phonenumber: String,
             phonenumbertype: String,
@@ -27,12 +15,12 @@ const DepartmentSchema = new Schema (
             emailaddress: String,
             emaildescription: String
          }],
-         LogoPath: { type: String, required: true},
-         organization: {type: Schema.Types.ObjectId, ref: 'Organization', required: true}
+         businessunit: {type: Schema.Types.ObjectId, ref: 'BusinessUnit', required: true},
+         headofdepartment: {type: Schema.Types.ObjectId, ref: 'EmployeeMasterData', required: true}
     },
     {
         timestamps: true
     }
 );
 
-export default model('BusinessUnit', BusinessUnitSchema)
+export default model('Department', DepartmentSchema)
